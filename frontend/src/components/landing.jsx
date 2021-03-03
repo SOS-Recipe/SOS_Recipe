@@ -1,4 +1,5 @@
 import React from "react";
+import '../css/landing.css';
 
 class Landing extends React.Component {
     componentDidMount() {
@@ -7,8 +8,13 @@ class Landing extends React.Component {
     render() {
         return(
             <main>
-                <h1>SOS_Recipe</h1>
-                <p>Landing page.</p>
+                <div className='Landing-component'>
+                    <h1>SOS_Recipe</h1>
+                    <form name="searchbar">
+                        <input type="search" placeholder="Search for a recipe" id="search" autofocus required/>
+                        <button type ="submit">Go</button>
+                    </form>
+                </div>
             </main>
         )
     }

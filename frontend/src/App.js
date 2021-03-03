@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import Landing from './components/landing';
 import Header from './components/header';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.css';
+import About from './components/about';
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
         < Header/>
       </div>
   </>
+    </div>
   );
 }
 

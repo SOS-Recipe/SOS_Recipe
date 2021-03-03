@@ -1,0 +1,44 @@
+:root {
+    --rad: .4rem;
+}
+.Landing-component {
+    background-image: url(../img/landing-background.jpg);
+
+    height: 100vh; 
+    margin: 0;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 0px 20px;
+}
+
+.Landing-component h1 {
+    font-size: 5rem;
+    color: white;
+}
+
+form {
+    position: relative;
+    border-radius: .7rem;
+}
+
+input, button {
+    border: 0;
+    font-size: 1.5rem;
+    color: rgb(70, 70, 70);
+}
+
+input {
+    border-radius: var(--rad) 0 0 var(--rad);
+}
+
+button {
+    background: rgb(27, 230, 105);
+    border-radius: 0 var(--rad) var(--rad) 0;
+}

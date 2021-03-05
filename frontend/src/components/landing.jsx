@@ -1,15 +1,19 @@
 import React from "react";
 import '../css/landing.css';
+import axios from "../../node_modules/axios";
+
 
 class Landing extends React.Component {
     componentDidMount() {
         document.title="SOS_Recipe"
     }
+    
+
     render() {
         return(
             <main>
                 <div className='Landing-component'>
-                    <h1>SOS_Recipe</h1>
+                    <h1>SOS Recipe</h1>
                     <form name="searchbar">
                         <input type="search" placeholder="Search for a recipe" id="search" autofocus required/>
                         <button type ="submit">Go</button>

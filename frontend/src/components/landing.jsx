@@ -1,14 +1,11 @@
 import React from "react";
 import '../css/landing.css';
-import axios from "../../node_modules/axios";
 
 
 class Landing extends React.Component {
     componentDidMount() {
         document.title="SOS_Recipe"
     }
-    
-
     render() {
         return(
             <main>

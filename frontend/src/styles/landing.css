@@ -2,7 +2,7 @@
     --rad: .4rem;
 }
 .Landing-component {
-    background-image: url(../img/landing-background.jpg);
+    background-image: url(../images/landing-background.jpg);
 
     height: 100vh; 
     margin: 0;

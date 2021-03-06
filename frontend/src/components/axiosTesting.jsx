@@ -1,21 +1,27 @@
 import React from 'react'
 import axios from 'axios'
 
-class AxiosTest extends Recact.Component {
-    state = {
-        recipes: [],
-    };
+class AxiosTest extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            recipes: [],
+        };
+    }
 
-    ComponentDidMount() {
-        axios.get('https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata')
-        console.log(res.data);
-        this.setState({recipes: res.data});
+    componentDidMount() {
+        axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata`).then(res => {
+            console.log(res);
+            const recipes = JSON.parse(res.data);
+            this.setState({recipes: recipes});
+        });
     }
 
     render() {
         return(
             <>
-                <ul>{this.state.recipes.map(recipe => <li>{recipe.strMeal}</li>)}</ul>
+                {/* <ul>{this.state.recipes.map(recipe =>{<li key={recipe.idMeal}>{recipe.strMeal}</li>})}</ul> */}
+                <p>{this.state.recipes.strMeal}</p>
             </>
         )
     }

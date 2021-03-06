@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import About from './components/about';
 import { Redirect, Route, Router, Switch} from "react-router-dom";
 import history from "./history";
+import Recipe from './components/recipe';
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
           <Switch>
            <Route component={Landing} exact={true} path="/" />
            <Route component={About} exact={true} path ="/About"/>
+           <Route component={Recipe} exact={true} path="/Recipe"/>
           </Switch>
         </Router>
       </div>

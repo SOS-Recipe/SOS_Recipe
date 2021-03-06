@@ -3,8 +3,8 @@ import Landing from './components/landing';
 import Header from './components/header';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import About from './components/about';
+import Recipe from './components/recipe';
 import AxiosTest from './components/axiosTesting';
-
 function App() {
   return (
   <>

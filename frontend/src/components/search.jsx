@@ -8,6 +8,7 @@ class Search extends React.Component {
 
     componentDidMount() {
         document.title="SOS_Recipe"
+        console.log(this.props.location.state.data);
     }
 
     handleClick(e, meal) {
@@ -74,7 +75,7 @@ class Search extends React.Component {
                             </select>
                         </form>
                         <div class="results_btn">
-                                {this.props.data.map(recipe => <button type="button" class="btn border-primary btn-light btn-lg btn-block" onClick>{recipe.strMeal}</button>)}
+                                {this.props.location.state.data.map(recipe => <button type="button" class="btn border-primary btn-light btn-lg btn-block" onClick>{recipe.strMeal}</button>)}
 
                         </div>   
                     </div>

@@ -4,6 +4,12 @@ import "../styles/search.css";
 class Search extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            head_text: "",
+            queryKeys: [],
+            ingredient_items: [],
+            clicked: false,
+        };
     }
 
     componentDidMount() {
@@ -19,9 +25,8 @@ class Search extends React.Component {
         }
     }
     outputFunc(recipe){
-      document.getElementById("mealName").innerHTML = recipe.strMeal
-      //document.getElementsByClassName("ingredients").innerHTML = recipe.strIngredients
-      //document.getElementsByClassName("measurements").innerHTML = recipe.strMeasurements
+      
+      this.setState({ingredient_items: ingredient_items, queryKeys: queryKeys});
     }
 
     render() {
@@ -88,7 +93,6 @@ class Search extends React.Component {
                               onClick={this.outputFunc.bind(recipe)}>{recipe.strMeal}
                             </button>
                           )}
-
                         </div>   
                     </div>
                     <div class="output">

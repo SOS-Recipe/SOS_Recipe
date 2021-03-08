@@ -2,9 +2,22 @@ import React from "react";
 import '../styles/search.css';
 
 class Search extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
     componentDidMount() {
         document.title="SOS_Recipe"
     }
+
+    handleClick(e, meal) {
+        for(let i=0; i < this.props.data.length; i++) {
+            if(this.props.data[i].strMeal === meal) {
+                
+            }
+        }
+    }
+
     render() {
         return(
             <main>
@@ -61,16 +74,7 @@ class Search extends React.Component {
                             </select>
                         </form>
                         <div class="results_btn">
-                            <button type="button" class="btn border-primary btn-light btn-lg btn-block">Lorem.</button>
-                            <button type="button" class="btn border-primary btn-light btn-lg btn-block">Lorem.</button>
-                            <button type="button" class="btn border-primary btn-light btn-lg btn-block">Lorem.</button>
-                            <button type="button" class="btn border-primary btn-light btn-lg btn-block">Lorem.</button>
-                            <button type="button" class="btn border-primary btn-light btn-lg btn-block">Lorem.</button>
-                            <button type="button" class="btn border-primary btn-light btn-lg btn-block">Lorem.</button>
-                            <button type="button" class="btn border-primary btn-light btn-lg btn-block">Lorem.</button>
-                            <button type="button" class="btn border-primary btn-light btn-lg btn-block">Lorem.</button>
-                            <button type="button" class="btn border-primary btn-light btn-lg btn-block">Lorem.</button>
-                            <button type="button" class="btn border-primary btn-light btn-lg btn-block">Lorem.</button>
+                                {this.props.data.map(recipe => <button type="button" class="btn border-primary btn-light btn-lg btn-block" onClick>{recipe.strMeal}</button>)}
 
                         </div>   
                     </div>

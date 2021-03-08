@@ -6,7 +6,7 @@ import { Redirect, Route, Router, Switch} from "react-router-dom";
 import history from "./history";
 import Recipe from './components/recipe';
 import AxiosTest from './components/axiosTesting';
-import Search from './components/search'
+import Search from './components/search';
 
 function App() {
   return (

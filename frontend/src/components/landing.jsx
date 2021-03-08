@@ -1,6 +1,7 @@
 import React from "react";
 import '../styles/landing.css';
 
+
 class Landing extends React.Component {
     componentDidMount() {
         document.title="SOS_Recipe"
@@ -9,7 +10,7 @@ class Landing extends React.Component {
         return(
             <main>
                 <div className='Landing-component'>
-                    <h1>SOS_Recipe</h1>
+                    <h1>SOS Recipe</h1>
                     <form name="searchbar">
                         <input type="search" placeholder="Search for a recipe" id="search" autofocus required/>
                         <button type ="submit">Go</button>

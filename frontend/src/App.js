@@ -5,6 +5,7 @@ import About from './components/about';
 import { Redirect, Route, Router, Switch} from "react-router-dom";
 import history from "./history";
 import Recipe from './components/recipe';
+import AxiosTest from './components/axiosTesting';
 import Search from './components/search'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
            <Route component={About} exact={true} path ="/About"/>
            <Route component={Recipe} exact={true} path="/Recipe"/>
            <Route component={Search} exact={true} path="/Search"/>
+           <Route component={AxiosTest} exact={true} path="/test"/>
           </Switch>
         </Router>
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/header.css'
 
 
 class Header extends React.Component {
@@ -7,7 +8,7 @@ class Header extends React.Component {
     }
     render() {
         return(
-            <header>
+            <header class="header-nav">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <ul class="navbar-nav">
                             <li class="nav-item active">

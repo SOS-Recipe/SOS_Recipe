@@ -43,6 +43,7 @@ class Landing extends React.Component {
                                 state: {data: this.state.recipes}
                             }}
                             ></Link>
+
                     </form>
                 </div>
             </main>

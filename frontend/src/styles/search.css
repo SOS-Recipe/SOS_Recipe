@@ -1,17 +1,20 @@
 .flex_container{
+    min-height: 100vh;
     display: flex
 }
 
 .search_results_wrapper {
     width: 25%;
+    height: 100%;
     border: 1px solid black;
     overflow: hidden; 
     background-color: grey;
 }
-div.results_btn {
+.results_btn {
     width: 100%;
     /*float:left; /* add this */
     border: 1px solid black;
+    overflow: auto;
 }
 
 
@@ -23,17 +26,24 @@ div.results_btn {
 
 .search {
     border: 1px solid black;
-    width: 90.9%;
-    overflow: hidden; 
+    width: 90%;
+    overflow: auto; 
 }
 
 
 .output {
-    background-image: url(../images/landing-background.jpg);
+    background: no-repeat;
+    background-attachment: fixed;
+    background-position-x: 76%;
+
+    background-color: darkgray;
     width: 75%;
   }
 
 .output h1{
+
+    position: fixed;
+    width: 75%;
     text-align: center;
     background-color: grey;
     color: black;
@@ -42,6 +52,7 @@ div.results_btn {
 .ingredients{
     background-color: grey;
     color: black;
+    float: left;
 }
 
 .measurements{

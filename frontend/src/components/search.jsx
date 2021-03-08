@@ -1,5 +1,6 @@
 import React from "react";
 import '../styles/search.css';
+import {Link} from "react-router-dom";
 
 class Search extends React.Component {
     constructor(props) {
@@ -9,14 +10,6 @@ class Search extends React.Component {
     componentDidMount() {
         document.title="SOS_Recipe"
         console.log(this.props.location.state.data);
-    }
-
-    handleClick(e, meal) {
-        for(let i=0; i < this.props.data.length; i++) {
-            if(this.props.data[i].strMeal === meal) {
-                
-            }
-        }
     }
 
     render() {
@@ -75,7 +68,16 @@ class Search extends React.Component {
                             </select>
                         </form>
                         <div class="results_btn">
-                                {this.props.location.state.data.map(recipe => <button type="button" class="btn border-primary btn-light btn-lg btn-block" onClick>{recipe.strMeal}</button>)}
+                                {this.props.location.state.data.map(recipe => 
+                                <button type="submit" class="btn border-primary btn-light btn-lg btn-block" >
+                                    <Link id={`recipe:${recipe.strMeal}`} 
+                                    to= {{
+                                        pathname:'/Recipe',
+                                        state: {data: this.props.location.state.data, recipe: recipe}
+                                    }}>
+                                        {recipe.strMeal}
+                                    </Link>
+                                    </button>)}
 
                         </div>   
                     </div>

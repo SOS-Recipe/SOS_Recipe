@@ -1,5 +1,4 @@
 import React from "react";
-
 import '../styles/search.css';
 import {Link} from "react-router-dom";
 
@@ -11,6 +10,7 @@ class Search extends React.Component {
             queryKeys: [],
             ingredient_items: [],
             clicked: false,
+            backgroundImg: `url('../images/landing-background.jpg')`
         };
     }
 
@@ -18,10 +18,25 @@ class Search extends React.Component {
         document.title="SOS_Recipe"
         console.log(this.props.location.state.data);
     }
+    over(strMeal){
+      console.log(strMeal)
+      let i = 0;
+      for (i = 0; i < this.props.location.state.data.length; i++){
+        //console.log(this.props.location.state.data[i].strMeal)
+          if(strMeal === this.props.location.state.data[i].strMeal){
+            console.log(this.props.location.state.data[i].strMealThumb)
+            this.setState({
+              head_text: strMeal, 
+              backgroundImg: this.props.location.state.data[i].strMealThumb,
+            })
+            //document.body.style.background = this.props.location.state.data[i].strMealThumb
+            //document.getElementById('mealName').innerHTML = this.props.location.state.data[i].strMeal
+          }
+      }
+    }
 
     render() {
         return(
-
             <main>
                 <div class="flex_container">
                     <div class="search_results_wrapper">
@@ -76,9 +91,12 @@ class Search extends React.Component {
                             </select>
                         </form>
                         <div class="results_btn">
-
                                 {this.props.location.state.data.map(recipe => 
-                                <button type="submit" class="btn border-primary btn-light btn-lg btn-block" >
+                                <button 
+                                  id={`${recipe.strMeal}`} 
+                                  type="submit" 
+                                  class="btn border-primary btn-light btn-lg btn-block" 
+                                  onMouseOver={()=> this.over(`${recipe.strMeal}`)}>
                                     <Link id={`recipe:${recipe.strMeal}`} 
                                     to= {{
                                         pathname:'/Recipe',
@@ -86,21 +104,14 @@ class Search extends React.Component {
                                     }}>
                                         {recipe.strMeal}
                                     </Link>
-                                    </button>)}
+                                </button>)
+                                }
                         </div>   
                     </div>
-                    <div class="output">
+                    <div class="output" style={{backgroundImage: `url(${this.state.backgroundImg})`}}>
                         <h1 id = "mealName">
-                          strMeal
+                          {this.state.head_text}
                         </h1>
-                        <div class = "ing_meas_wrap">
-                            <div class="ingredients">
-                                strIngredient
-                            </div>
-                            <div class="measurements">
-                                strMeasure
-                            </div>
-                        </div>
                     </div>
                 </div>
             </main>

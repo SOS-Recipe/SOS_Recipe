@@ -8,6 +8,7 @@ class Search extends React.Component {
 
     componentDidMount() {
         document.title="SOS_Recipe"
+        console.log(this.props.location.state.data);
     }
 
     handleClick(e, meal) {
@@ -87,6 +88,7 @@ class Search extends React.Component {
                               onClick={this.outputFunc.bind(recipe)}>{recipe.strMeal}
                             </button>
                           )}
+
                         </div>   
                     </div>
                     <div class="output">

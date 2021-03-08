@@ -11,17 +11,17 @@ class AxiosTest extends React.Component {
 
     componentDidMount() {
         axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata`).then(res => {
-            console.log(res);
-            const recipes = JSON.parse(res.data);
-            this.setState({recipes: recipes});
+            this.setState({recipes: res.data.meals});
+            console.log(this.state.recipes)
         });
     }
 
     render() {
         return(
             <>
-                {/* <ul>{this.state.recipes.map(recipe =>{<li key={recipe.idMeal}>{recipe.strMeal}</li>})}</ul> */}
-                <p>{this.state.recipes.strMeal}</p>
+            <body>
+                <ul>{this.state.recipes.map(recipe =>{<li key={recipe.idMeal}>{recipe.strMeal}</li>})}</ul>
+            </body>
             </>
         )
     }

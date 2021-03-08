@@ -1,10 +1,36 @@
 import React from "react";
 import '../styles/recipe.css';
+import myRecipe from '../testrecipe.json';
 
 class Recipe extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            queryKeys: [],
+            ingredient_items: [],
+            clicked: false,
+        };
+    }
+
     componentDidMount() {
         document.title="SOS_Recipe"
+        let queryKeys = Object.keys(myRecipe.meals[0]);
+
+        let i = 0;
+        let ingredient_items = [];
+
+        for(i = 0; i < 20; i++) {
+            if (myRecipe.meals[0][queryKeys[i+9]] && myRecipe.meals[0][queryKeys[i+29]]) {
+                if (myRecipe.meals[0][queryKeys[i+9]] !== "" || myRecipe.meals[0][queryKeys[i+29]] !== "") {
+                    ingredient_items[i] = {measurement: myRecipe.meals[0][queryKeys[i+29]],
+                                        ingredient: myRecipe.meals[0][queryKeys[i+9]]};
+                }
+            }
+        }
+
+        this.setState({ingredient_items: ingredient_items, queryKeys: queryKeys});
     }
+
     render() {
         return(
             <main>
@@ -14,7 +40,7 @@ class Recipe extends React.Component {
                             <div class="col-md-12">
                                 <div class="page-header">
                                     <h1 class="text-center">
-                                        Recipe Title
+                                        {myRecipe.meals[0].strMeal}
                                     </h1>
                                 </div>
                             </div>
@@ -25,18 +51,8 @@ class Recipe extends React.Component {
                                     Ingredients
                                 </h2>
                                 <ul>
-                                    <li class="list-item">
-                                        Item 1
-                                    </li>
-                                    <li class="list-item">
-                                        Item 2
-                                    </li>
-                                    <li class="list-item">
-                                        Item 3
-                                    </li>
-                                    <li class="list-item">
-                                        Item 4
-                                    </li>
+                                    {this.state.ingredient_items.map(ingredient_item => 
+                                        (<li>{ingredient_item.measurement} - {ingredient_item.ingredient}</li>))}
                                 </ul>
                             </div>
                             <div class="col-md-8">
@@ -44,15 +60,7 @@ class Recipe extends React.Component {
                                     Instructions
                                 </h2>
                                 <p class="text-left">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    Aliquam laoreet ut sapien non aliquet. Aliquam tempus, 
-                                    quam sit amet interdum consectetur, elit justo facilisis 
-                                    justo, id lobortis nulla ligula in augue. Sed dictum nunc 
-                                    elit. Donec maximus, nibh ac vulputate elementum, erat odio
-                                    porta urna, vitae blandit nisl ante nec nibh. Suspendisse 
-                                    et neque a libero efficitur egestas nec iaculis quam. In 
-                                    vel eros ornare, imperdiet lacus vitae, consectetur odio. 
-                                    Proin pretium porta nibh. Sed ut commodo massa, et tempor neque.
+                                    {myRecipe.meals[0].strInstructions}
                                 </p>
                             </div>
                         </div>

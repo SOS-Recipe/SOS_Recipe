@@ -14,16 +14,16 @@ class Recipe extends React.Component {
 
     componentDidMount() {
         document.title="SOS_Recipe"
-        let queryKeys = Object.keys(myRecipe.meals[0]);
+        let queryKeys = Object.keys(this.props.location.state.recipe);
 
         let i = 0;
         let ingredient_items = [];
 
         for(i = 0; i < 20; i++) {
-            if (myRecipe.meals[0][queryKeys[i+9]] && myRecipe.meals[0][queryKeys[i+29]]) {
-                if (myRecipe.meals[0][queryKeys[i+9]] !== "" || myRecipe.meals[0][queryKeys[i+29]] !== "") {
-                    ingredient_items[i] = {measurement: myRecipe.meals[0][queryKeys[i+29]],
-                                        ingredient: myRecipe.meals[0][queryKeys[i+9]]};
+            if (this.props.location.state.recipe[queryKeys[i+9]] && this.props.location.state.recipe[queryKeys[i+29]]) {
+                if (this.props.location.state.recipe[queryKeys[i+9]] !== "" || this.props.location.state.recipe[queryKeys[i+29]] !== "") {
+                    ingredient_items[i] = {measurement: this.props.location.state.recipe[queryKeys[i+29]],
+                                        ingredient: this.props.location.state.recipe[queryKeys[i+9]]};
                 }
             }
         }
@@ -40,7 +40,7 @@ class Recipe extends React.Component {
                             <div class="col-md-12">
                                 <div class="page-header">
                                     <h1 class="text-center">
-                                        {myRecipe.meals[0].strMeal}
+                                        {this.props.location.state.recipe.strMeal}
                                     </h1>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@ class Recipe extends React.Component {
                                     Instructions
                                 </h2>
                                 <p class="text-left">
-                                    {myRecipe.meals[0].strInstructions}
+                                    {this.props.location.state.recipe.strInstructions}
                                 </p>
                             </div>
                         </div>

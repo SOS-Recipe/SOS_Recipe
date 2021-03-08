@@ -8,10 +8,11 @@
     overflow: hidden; 
     background-color: grey;
 }
-div.results_btn {
+.results_btn {
     width: 100%;
     /*float:left; /* add this */
     border: 1px solid black;
+    overflow: scroll;
 }
 
 
@@ -24,7 +25,7 @@ div.results_btn {
 .search {
     border: 1px solid black;
     width: 90.9%;
-    overflow: hidden; 
+    overflow: auto; 
 }
 
 
@@ -42,6 +43,7 @@ div.results_btn {
 .ingredients{
     background-color: grey;
     color: black;
+    float: left;
 }
 
 .measurements{

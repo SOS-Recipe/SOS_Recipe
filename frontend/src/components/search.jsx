@@ -17,9 +17,15 @@ class Search extends React.Component {
             }
         }
     }
+    outputFunc(recipe){
+      document.getElementById("mealName").innerHTML = recipe.strMeal
+      //document.getElementsByClassName("ingredients").innerHTML = recipe.strIngredients
+      //document.getElementsByClassName("measurements").innerHTML = recipe.strMeasurements
+    }
 
     render() {
         return(
+
             <main>
                 <div class="flex_container">
                     <div class="search_results_wrapper">
@@ -74,19 +80,26 @@ class Search extends React.Component {
                             </select>
                         </form>
                         <div class="results_btn">
-                                {this.props.data.map(recipe => <button type="button" class="btn border-primary btn-light btn-lg btn-block" onClick>{recipe.strMeal}</button>)}
-
+                          {this.props.data.map(recipe => 
+                            <button 
+                              type="button" 
+                              class="btn border-primary btn-light btn-lg btn-block" 
+                              onClick={this.outputFunc.bind(recipe)}>{recipe.strMeal}
+                            </button>
+                          )}
                         </div>   
                     </div>
                     <div class="output">
-                        <h1>strMeal</h1>
+                        <h1 id = "mealName">
+                          strMeal
+                        </h1>
                         <div class = "ing_meas_wrap">
-                            <p class="ingredients">
+                            <div class="ingredients">
                                 strIngredient
-                            </p>
-                            <p class="measurements">
+                            </div>
+                            <div class="measurements">
                                 strMeasure
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -106,11 +119,44 @@ strMealThumb =      meal image
 strIngredient<num> =ingredient <num>, only up to 20
 strMeasure<num> =   measurement of ingredient <num>, only up to 20
 
-
-style="background-image: url('img_girl.jpg');"
-
 TODO:
+    crashes if data is null (since map is called on data)
+    buttons don't overflow properly
+    button hover doesn't display in output
+    button click doesn't go to recipe page
+    make it work on smaller screens
+
     buttons have strMealThumb as background image
     buttons have outline
     output has dynamic information
+
+
+                        <div class="results_btn">
+                          {this.props.data === null?
+                            <p>No results!</p>:
+                            {this.props.data.map(recipe => 
+                              <button 
+                                type="button" 
+                                class="btn border-primary btn-light btn-lg btn-block" 
+                                onClick>{recipe.strMeal}
+                              </button>
+                            )}
+                          }
+                        </div>   
+
+
+    condRenBut(data) {
+      if (data === null) {
+        return <p>No</p>
+      }
+      else{
+        data.map(recipe => 
+          <button 
+            type="button" 
+            class="btn border-primary btn-light btn-lg btn-block" 
+            onClick>{recipe.strMeal}
+          </button>
+        )
+      }
+    }
 */

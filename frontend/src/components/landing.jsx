@@ -2,6 +2,7 @@ import React from "react";
 import '../styles/landing.css';
 import axios from 'axios';
 import Search from './search';
+import {Link} from "react-router-dom";
 
 class Landing extends React.Component {
     constructor(props) {
@@ -12,14 +13,15 @@ class Landing extends React.Component {
         };
     }
 
-    searchRecipe(e) {
+    async searchRecipe(e) {
         e.preventDefault();
         let name = String(document.getElementById("search").value);
-        axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`).then(res => {
+        await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`).then(res => {
             console.log(res.data);
             this.setState({recipes: res.data.meals});
         });
         this.setState({clicked: true});
+        document.getElementById("goNext").click();
     }
 
     componentDidMount() {
@@ -35,9 +37,12 @@ class Landing extends React.Component {
                     <form name="searchbar">
                         <input type="search" placeholder="Search for a recipe" id="search" autofocus required/>
                         <button type ="submit" onClick={this.searchRecipe.bind(this)}>Go</button>
-                        {this.state.clicked? 
-                        <Search data={this.state.recipes}/> :
-                        null}
+                            <Link id="goNext"
+                            to= {{
+                                pathname: '/Search',
+                                state: {data: this.state.recipes}
+                            }}
+                            ></Link>
                     </form>
                 </div>
             </main>

@@ -2,9 +2,26 @@ import React from "react";
 import '../styles/about.css'
 
 class About extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            contacts:[]
+        }
+    }
+
     componentDidMount() {
         document.title="SOS_Recipe"
+        this.getContacts();
     }
+
+    // Gets the list of contact info from the express app
+    getContacts = () => {
+        fetch('/getContacts')
+        .then(res => res.json())
+        .then(contacts => this.setState({contacts}))
+    }
+
     render() {
         return(
             <body class="AboutPage">
@@ -22,6 +39,10 @@ class About extends React.Component {
 
     Morbi non arcu risus quis varius quam quisque. Arcu dui vivamus arcu felis bibendum ut tristique et. Mauris a diam maecenas sed. Congue quisque egestas diam in. Tellus id interdum velit laoreet id donec ultrices. Ornare suspendisse sed nisi lacus. Auctor elit sed vulputate mi sit amet. Semper viverra nam libero justo laoreet. Tellus pellentesque eu tincidunt tortor aliquam nulla. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat in. Ipsum consequat nisl vel pretium. Ornare arcu odio ut sem nulla.
                         </p>
+                        <ul>
+                            {this.state.contacts.map(contact => 
+                                (<li>{contact}</li>))}
+                        </ul>
                     </div>
                 </div>
             </body>

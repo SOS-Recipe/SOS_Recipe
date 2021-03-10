@@ -1,26 +1,19 @@
 import React from "react";
 import '../styles/contact.css'
-import aboutText from '../writing/text.jsx'
+import contactText from '../writing/contactText.jsx'
 
 class Contact extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          head_text: aboutText,
-        }
-    }
-
     componentDidMount() {
         document.title="SOS_Recipe"
     }
     render() {
-        const myText = aboutText;
+        const myText = contactText;
         return(
             <body class="ContactPage">
                 <div class="ContactBody">
                     <div class='content'>
                         <h1>Contact Us</h1>
-                        <p>{myText}</p>
+                        <p class="ContactText">{myText}</p>
                     </div>
                 </div>
             </body>

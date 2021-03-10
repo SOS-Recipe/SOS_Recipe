@@ -12,8 +12,6 @@ app.get('/getContacts', (req, res) => {
 
 app.get('*', (req, res) => {
   let url = path.join(__dirname, '/frontend/build/index.html');
-  // if (!url.startsWith('/components/'))
-  //   url = url.substring(1);
   res.sendFile(url);
 });
 

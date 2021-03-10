@@ -1,7 +1,6 @@
 import React from "react";
 import '../styles/landing.css';
 import axios from 'axios';
-import Search from './search';
 import {Link} from "react-router-dom";
 
 class Landing extends React.Component {
@@ -9,18 +8,22 @@ class Landing extends React.Component {
         super(props);
         this.state = {
             recipes: [],
-            clicked: false,
         };
     }
 
-    async searchRecipe(e) {
+    async handleClick(e) {
         e.preventDefault();
+        let results = [];
         let name = String(document.getElementById("search").value);
         await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`).then(res => {
-            console.log(res.data);
-            this.setState({recipes: res.data.meals});
+            if (res.data.meals) {
+            results = res.data.meals;
+        
+        } else {
+            results = [];
+        }
+            this.setState({recipes: results});
         });
-        this.setState({clicked: true});
         document.getElementById("goNext").click();
     }
 
@@ -36,7 +39,7 @@ class Landing extends React.Component {
                     <h1>SOS Recipe</h1>
                     <form name="searchbar">
                         <input type="search" placeholder="Search for a recipe" id="search" autofocus required/>
-                        <button type ="submit" onClick={this.searchRecipe.bind(this)}>Go</button>
+                        <button type ="submit" onClick={this.handleClick.bind(this)}>Go</button>
                             <Link id="goNext"
                             to= {{
                                 pathname: '/Search',

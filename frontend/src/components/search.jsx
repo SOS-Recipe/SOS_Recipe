@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/search.css";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 class Search extends React.Component {
   constructor(props) {
@@ -11,18 +12,35 @@ class Search extends React.Component {
       ingredient_items: [],
       clicked: false,
       backgroundImg: `url('../images/landing-background.jpg')`,
+      recipes: [],
     };
   }
 
   componentDidMount() {
     document.title = "SOS_Recipe";
     console.log(this.props.location.state.data);
+    this.setState({recipes: this.props.location.state.data})
   }
+
+  async handleClick(e) {
+    e.preventDefault();
+    let results = [];
+    let name = String(document.getElementById("search").value);
+    await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`).then(res => {
+        if (res.data.meals) {
+        results = res.data.meals;
+    
+    } else {
+        results = [];
+    }
+        this.setState({recipes: results});
+    });
+  }
+
   over(strMeal) {
     console.log(strMeal);
     let i = 0;
     for (i = 0; i < this.props.location.state.data.length; i++) {
-      //console.log(this.props.location.state.data[i].strMeal)
       if (strMeal === this.props.location.state.data[i].strMeal) {
         console.log(this.props.location.state.data[i].strMealThumb);
         this.setState({
@@ -49,7 +67,7 @@ class Search extends React.Component {
                 autofocus
                 required
               />
-              <button type="submit" class="go_btn">
+              <button type="submit" class="go_btn" onClick={this.handleClick.bind(this)}>
                 Go
               </button>
               <select name="catagory" id="catagory_drop" class="catagory_drop">
@@ -100,7 +118,7 @@ class Search extends React.Component {
               </select>
             </form>
             <div class="results_btn">
-              {this.props.location.state.data.map((recipe) => (
+              {this.state.recipes.map((recipe) => (
                 <button
                   id={`${recipe.strMeal}`}
                   type="submit"

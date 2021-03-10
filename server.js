@@ -10,6 +10,13 @@ app.get('/getContacts', (req, res) => {
   res.json(contacts);
 })
 
+app.get('/*', (req, res) => {
+  let url = path.join(__dirname, '../frontend/build', 'index.html');
+  if (!url.startsWith('/components/'))
+    url = url.substring(1);
+  res.sendFile(url);
+});
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 })

@@ -7,6 +7,7 @@ import history from "./history";
 import Recipe from './components/recipe';
 import AxiosTest from './components/axiosTesting';
 import Search from './components/search';
+import Contact from './components/contact';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Switch>
            <Route component={Landing} exact={true} path="/" />
            <Route component={About} exact={true} path ="/About"/>
+           <Route component={Contact} exact={true} path="/Contact"/>
            <Route component={Recipe} exact={true} path="/Recipe"/>
            <Route component={Search} exact={true} path="/Search"/>
            <Route component={AxiosTest} exact={true} path="/test"/>

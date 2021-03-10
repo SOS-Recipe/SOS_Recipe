@@ -1,3 +1,4 @@
+
 .flex_container{
     padding-top: 62px;
     min-height: 100vh;
@@ -5,62 +6,59 @@
 }
 
 .search_results_wrapper {
-    width: 25%;
-    height: 100%;
-    border: 1px solid black;
-    overflow: hidden; 
-    background-color: grey;
+  width: 25%;
+  height: 100%;
+  border: 1px solid black;
+  overflow: hidden;
+  background-color: grey;
 }
 .results_btn {
-    width: 100%;
-    /*float:left; /* add this */
-    border: 1px solid black;
-    overflow: auto;
+  width: 100%;
+  /*float:left; /* add this */
+  border: 1px solid black;
+  overflow: auto;
 }
 
-
-.search_form{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+.search_form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .search {
-    border: 1px solid black;
-    width: 90%;
-    overflow: auto; 
+  border: 1px solid black;
+  width: 90%;
+  overflow: auto;
 }
-
 
 .output {
-    background: no-repeat;
-    background-attachment: fixed;
-    background-position-x: 76%;
+  background: no-repeat;
+  background-attachment: fixed;
+  background-position-x: 76%;
 
-    background-color: darkgray;
-    width: 75%;
-  }
-
-.output h1{
-
-    position: fixed;
-    width: 75%;
-    text-align: center;
-    background-color: grey;
-    color: black;
+  background-color: darkgray;
+  width: 75%;
 }
 
-.ingredients{
-    background-color: grey;
-    color: black;
-    float: left;
+.output h1 {
+  position: fixed;
+  width: 75%;
+  text-align: center;
+  background-color: grey;
+  color: black;
 }
 
-.measurements{
-    background-color: grey;
-    color: black;
+.ingredients {
+  background-color: grey;
+  color: black;
+  float: left;
 }
 
-type.button{
-    border: 1px solid black;
+.measurements {
+  background-color: grey;
+  color: black;
+}
+
+type.button {
+  border: 1px solid black;
 }

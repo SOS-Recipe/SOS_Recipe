@@ -1,11 +1,15 @@
 .AboutBody {
-    height: 100%;
-    background: url("../images/aboutBackground.jpg") no-repeat center fixed;
+    display: flex;
+    /* position: relative; */
+    padding-top: 62px;
+    min-height: 100%;
+    background: url("../images/landing-background.jpg") no-repeat center fixed;
     background-size: cover;
     margin: none;
 }
 
 .content {
+    position: relative;
     width: 70%;
     text-align: center;
     vertical-align: center;
@@ -16,6 +20,8 @@
     opacity: .9;
 }
 
-p {
+.AboutText {
+    position: relative;
     font-size: 18pt;
+    color: #333;
 }

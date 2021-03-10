@@ -1,6 +1,8 @@
-.flex_container {
-  min-height: 100vh;
-  display: flex;
+
+.flex_container{
+    padding-top: 62px;
+    min-height: 100vh;
+    display: flex
 }
 
 .search_results_wrapper {

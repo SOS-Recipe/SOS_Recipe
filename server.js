@@ -1,5 +1,5 @@
 const express = require('express');
-//const path = require('path');
+const path = require('path');
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -10,24 +10,11 @@ app.get('/getContacts', (req, res) => {
   res.json(contacts);
 })
 
-// app.get('/*', (req, res) => {
-//   let url = path.join(__dirname, '../frontend/build', 'index.html');
-//   if (!url.startsWith('/components/'))
-//     url = url.substring(1);
-//   res.sendFile(url);
-// });
-
-let protected = ['transformed.js', 'main.css', 'favicon.ico']
-
-app.get("*", (req, res) => {
-
-  let path = req.params['0'].substring(1)
-
-  if (protected.includes(path)) {
-    res.sendFile(`${__dirname}/build/${path}`);
-  } else {
-    res.sendFile(`${__dirname}/build/index.html`);
-  }
+app.get('*', (req, res) => {
+  let url = path.join(__dirname, '../frontend/build', 'index.html');
+  if (!url.startsWith('/components/'))
+    url = url.substring(1);
+  res.sendFile(url);
 });
 
 app.listen(port, () => {

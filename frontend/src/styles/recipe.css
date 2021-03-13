@@ -1,16 +1,37 @@
 .Recipe-component {
     padding-top: 62px;
-    /* background: rgb(83, 83, 83); */
     min-height: 100%;
     min-height: 100vh;
-    background: #343a40c2;
+    background: #cfd7dfc2;
 }
 
 .Recipe-component h1 {
     font-size: 5rem;
-    color: white;
 }
 
-.Recipe-component h2, li, p {
-    color: white;
+.recipe-text {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.recipe-list {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.img-fluid {
+    max-width: 70%;
+    height: auto;
+}
+
+@media (min-width: 1200px) {
+    .Recipe-component {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .recipe-text {
+        padding-left: 120px;
+        padding-right: 120px;
+    }
 }

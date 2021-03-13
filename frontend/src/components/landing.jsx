@@ -14,17 +14,67 @@ class Landing extends React.Component {
     async handleClick(e) {
         e.preventDefault();
         let results = [];
-        let name = String(document.getElementById("search").value);
-        await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`).then(res => {
+        let regionFlag = false;
+        let catagoryFlag = false;
+        let req = "https://www.themealdb.com/api/json/v1/1/";
+        if(document.getElementById("catagory_drop").value !== "") {
+            req += "filter.php?c=" + document.getElementById("catagory_drop").value + "&s=" + document.getElementById("search").value;
+        } 
+        else if (document.getElementById("region_drop").value !== "") {
+            req += "filter.php?a=" + document.getElementById("region_drop").value;
+            regionFlag = true;
+        } 
+        else if (document.getElementById("catagory_drop").value !== ""){
+            req += "filter.php?c=" + document.getElementById("catagory_drop").value;
+            if (document.getElementById("search").value !== "") {
+                req += "&s=" + String(document.getElementById("search").value)
+            }
+            catagoryFlag = true;
+        }
+        else {
+            req += "search.php?s=" + String(document.getElementById("search").value);
+        }
+        console.log("req: " + req);
+        await axios.get(req).then(res => {
             if (res.data.meals) {
-            results = res.data.meals;
-        
+                results = res.data.meals;
+                if (regionFlag) {
+                    console.log("results prior to getmeals");
+                    console.log(results);
+                    results = this.getMealsById(results);
+                    console.log("results post call to getmeals");
+                    console.log(results);
+                }
+                else if (catagoryFlag) {
+                    console.log("results prior to getmeals");
+                    console.log(results);
+                    results = this.getMealsById(results);
+                    console.log("results post call to getmeals");
+                    console.log(results);
+                }
         } else {
             results = [];
         }
             this.setState({recipes: results});
         });
         document.getElementById("goNext").click();
+    }
+
+    getMealsById(results) {
+        console.log("getting recipes");
+        let ret = [];
+        let req = "";
+        results.forEach(recipe => {
+            req = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + recipe.idMeal;
+            axios.get(req).then(res => {
+                ret.push(res.data.meals[0]);
+            });
+        });
+        return ret;
+    }
+
+    selectRegion(e) {
+        document.getElementById("search").innerHTML = document.getElementById("region_drop").value;
     }
 
     componentDidMount() {
@@ -64,7 +114,7 @@ class Landing extends React.Component {
                             <option value="Vegan">Vegan</option>
                             <option value="Vegetarian">Vegetarian</option>
                         </select>
-                        <select name="region" id="region_drop" class="region_drop">
+                        <select name="region" id="region_drop" class="region_drop" onChange={this.selectRegion.bind(this)}>
                             <option value="">Any Area</option>
                             <option value="American">American</option>
                             <option value="British">British</option>

@@ -12,30 +12,81 @@ class Search extends React.Component {
       ingredient_items: [],
       clicked: false,
       backgroundImg: `url('../images/landing-background.jpg')`,
-      recipes: [],
+      recipes: this.props.location.state.data,
     };
   }
 
   componentDidMount() {
     document.title = "SOS_Recipe";
-    console.log(this.props.location.state.data);
-    this.setState({recipes: this.props.location.state.data})
+    // console.log(this.props.location.state.data);
+    // console.log(this.state.recipes);
+    // this.setState({recipes: this.props.location.state.data}, () => {
+    //   console.log(this.state.recipes);
+    // });
+    this.forceUpdate();
   }
 
   async handleClick(e) {
     e.preventDefault();
-    let results = [];
-    let name = String(document.getElementById("search").value);
-    await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`).then(res => {
-        if (res.data.meals) {
-        results = res.data.meals;
-    
-    } else {
-        results = [];
+        let results = [];
+        let regionFlag = false;
+        let catagoryFlag = false;
+        let req = "https://www.themealdb.com/api/json/v1/1/";
+        if(document.getElementById("catagory_drop").value !== "") {
+            req += "filter.php?c=" + document.getElementById("catagory_drop").value + "&s=" + document.getElementById("search").value;
+        } 
+        else if (document.getElementById("region_drop").value !== "") {
+            req += "filter.php?a=" + document.getElementById("region_drop").value;
+            regionFlag = true;
+        } 
+        else if (document.getElementById("catagory_drop").value !== ""){
+            req += "filter.php?c=" + document.getElementById("catagory_drop").value;
+            if (document.getElementById("search").value !== "") {
+                req += "&s=" + String(document.getElementById("search").value)
+            }
+            catagoryFlag = true;
+        }
+        else {
+            req += "search.php?s=" + String(document.getElementById("search").value);
+        }
+        console.log("req: " + req);
+        await axios.get(req).then(res => {
+            if (res.data.meals) {
+                results = res.data.meals;
+                if (regionFlag) {
+                  console.log("results prior to getmeals");
+                  console.log(results);
+                  results = this.getMealsById(results);
+                  console.log("results post call to getmeals");
+                  console.log(results);
+                }
+                else if (catagoryFlag) {
+                  console.log("results prior to getmeals");
+                  console.log(results);
+                  results = this.getMealsById(results);
+                  console.log("results post call to getmeals");
+                  console.log(results);
+                }
+        } else {
+            results = [];
+            console.log("empty results")
+        }
+            this.setState({recipes: results});
+        });
     }
-        this.setState({recipes: results});
-    });
-  }
+
+    getMealsById(results) {
+        console.log("getting recipes");
+        let ret = [];
+        let req = "";
+        results.forEach(recipe => {
+            req = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + recipe.idMeal;
+            axios.get(req).then(res => {
+                ret.push(res.data.meals[0]);
+            });
+        });
+        return ret;
+    }
 
   over(strMeal) {
     console.log(strMeal);

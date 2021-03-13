@@ -8,6 +8,7 @@ import Recipe from './components/recipe';
 import AxiosTest from './components/axiosTesting';
 import Search from './components/search';
 import Contact from './components/contact';
+import displayAll from './components/displayAll'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
            <Route component={Recipe} exact={true} path="/Recipe"/>
            <Route component={Search} exact={true} path="/Search"/>
            <Route component={AxiosTest} exact={true} path="/test"/>
+           <Route component={displayAll} exact={true} path="/displayAll"/>
           </Switch>
         </Router>
       </div>

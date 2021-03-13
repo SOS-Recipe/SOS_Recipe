@@ -27,6 +27,38 @@ class Landing extends React.Component {
         document.getElementById("goNext").click();
     }
 
+    async handleAllClick(e) {
+        e.preventDefault();
+        let results = [];
+        let resIndex = 0;
+        let temp = [];
+        let i = 0;
+        let letter = (0+10).toString(36);
+
+        for (i = 0; i < 26; i++){
+            letter = (i+10).toString(36)
+
+            await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?f=${letter}`).then(res => {
+                if (res.data.meals) {
+                temp = res.data.meals;
+            
+            } else {
+                temp = [];
+            }
+                let j = 0;
+                for (j = 0; j < temp.length; j++){
+                    results[resIndex] = temp[j];
+                    resIndex += 1;
+                }
+                console.log(temp.length)
+                
+            });
+
+        }
+        this.setState({recipes: results});
+        document.getElementById("goNextAll").click();
+    }
+
     componentDidMount() {
         document.title="SOS_Recipe"
     }
@@ -39,7 +71,7 @@ class Landing extends React.Component {
                     <h1>SOS Recipe</h1>
                     <form name="searchbar">
                         <input type="search" placeholder="Search for a recipe" id="search" autofocus required/>
-                        <button type ="submit" onClick={this.handleClick.bind(this)}>Go</button>
+                        <button class="Single" type ="submit" onClick={this.handleClick.bind(this)}>Go</button>
                             <Link id="goNext"
                             to= {{
                                 pathname: '/Search',
@@ -93,6 +125,14 @@ class Landing extends React.Component {
                             <option value="Unknown">Unknown</option>
                             <option value="Vietnamese">Vietnamese</option>                               
                         </select>
+                        <br></br>
+                        <button class="ALL" type ="submit" onClick={this.handleAllClick.bind(this)}>Get All Recipes</button>
+                            <Link id="goNextAll"
+                            to= {{
+                                pathname: '/displayAll',
+                                state: {data: this.state.recipes}
+                            }}
+                            ></Link>
                     </form>
                 </div>
             </main>

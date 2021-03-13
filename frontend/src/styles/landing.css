@@ -38,7 +38,11 @@ input {
     border-radius: var(--rad) 0 0 var(--rad);
 }
 
-button {
+button.Single {
     background: rgb(27, 230, 105);
     border-radius: 0 var(--rad) var(--rad) 0;
+}
+button.ALL {
+    background: rgb(27, 230, 105);
+    border-radius: var(--rad) var(--rad) var(--rad) var(--rad);
 }

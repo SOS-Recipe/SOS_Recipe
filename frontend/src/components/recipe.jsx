@@ -34,7 +34,7 @@ class Recipe extends React.Component {
         return(
             <main>
                 <div class="Recipe-component">
-                    <div class="container-fluid">
+                    <div class="container-fluid content">
                         <div class ="row">
                             <div class="col-md-4">
                             </div>

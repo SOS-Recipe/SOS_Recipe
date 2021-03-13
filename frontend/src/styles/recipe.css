@@ -1,8 +1,12 @@
 .Recipe-component {
-    padding-top: 62px;
+    padding-top: 80px;
     min-height: 100%;
     min-height: 100vh;
     background: #cfd7dfc2;
+}
+
+.content {
+    width: 90%;
 }
 
 .Recipe-component h1 {
@@ -15,6 +19,7 @@
 }
 
 .recipe-list {
+    text-align: left;
     padding-left: 50px;
     padding-right: 50px;
 }
@@ -24,12 +29,22 @@
     height: auto;
 }
 
+@media (max-width: 991px) {
+    .Recipe-component {
+        padding-top: 220px;
+    }
+}
+
 @media (min-width: 1200px) {
     .Recipe-component {
         padding-left: 100px;
         padding-right: 100px;
     }
 
+    .content {
+        width: 70%;
+    }
+    
     .recipe-text {
         padding-left: 120px;
         padding-right: 120px;

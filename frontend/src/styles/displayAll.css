@@ -5,79 +5,30 @@
     display: flex
 }
 
-.search_results_wrapper {
-  width: 25%;
-  height: 100%;
-  border: 1px solid black;
-  overflow: hidden;
-  background-color: grey;
-}
 .results_btn {
   width: 100%;
   /*float:left; /* add this */
   border: 1px solid black;
-  overflow: auto;
-}
-
-.search_form {
+  /*overflow: auto;*/
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
-.search {
-  border: 1px solid black;
-  width: 90%;
-  overflow: auto;
-}
-
-.output {
-  background: no-repeat;
-  background-attachment: fixed;
-  background-position-x: 76%;
-
-  background-color: darkgray;
-  width: 75%;
-}
-
-.output h1 {
-  position: fixed;
-  width: 75%;
-  text-align: center;
-  background-color: grey;
-  color: black;
-}
-
-.ingredients {
-  background-color: grey;
-  color: black;
-  float: left;
-}
-
-.measurements {
-  background-color: grey;
-  color: black;
-}
-
-type.button {
-  border: 1px solid black;
-}
-
-
 .card {
   /* Add shadows to create the "card" effect */
-  
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background: no-repeat;
+  box-shadow: 5px 5px 8px rgba(0,0,0,0);
   transition: 0.3s;
-  width: 100%
+  padding: 2px 16px;
+  width: 33%;
+  height: 50vh;
 }
 
+.card h4 {
+  background-color: black;
+}
 /* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-/* Add some padding inside the card container */
-.container {
-  padding: 2px 16px;
 }

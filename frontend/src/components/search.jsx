@@ -155,27 +155,9 @@ export default Search;
 
 /*
 TODO:
-    crashes if data is null (since map is called on data)
-    buttons don't overflow properly
-    make it work on smaller screens
-
-    buttons have outline
-
-
-                        <div class="results_btn">
-                          {this.props.location.state.data === null?
-                            <p>No results!</p>:
-                            {this.props.data.map(recipe => 
-                              <button 
-                                type="button" 
-                                class="btn border-primary btn-light btn-lg btn-block" 
-                                onClick>{recipe.strMeal}
-                              </button>
-                            )}
-                          }
-                        </div>   
-
-TO GO IN LANDING:
-                        <br></br>
-
+  buttons don't overflow properly
+  search goes over navbar
+  filters
+  return all css
+  conatact and about text
 */

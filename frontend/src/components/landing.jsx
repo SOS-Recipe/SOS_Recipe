@@ -34,7 +34,6 @@ class Landing extends React.Component {
         let temp = [];
         let i = 0;
         let letter = (0+10).toString(36);
-        //let name = String(document.getElementById("search").value);
 
         for (i = 0; i < 26; i++){
             letter = (i+10).toString(36)
@@ -51,8 +50,6 @@ class Landing extends React.Component {
                     results[resIndex] = temp[j];
                     resIndex += 1;
                 }
-                //results = this.state.recipes
-                //console.log(this.state.recipes)       why is this working?
                 console.log(temp.length)
                 
             });
@@ -74,17 +71,10 @@ class Landing extends React.Component {
                     <h1>SOS Recipe</h1>
                     <form name="searchbar">
                         <input type="search" placeholder="Search for a recipe" id="search" autofocus required/>
-                        <button type ="submit" onClick={this.handleClick.bind(this)}>Go</button>
+                        <button class="Single" type ="submit" onClick={this.handleClick.bind(this)}>Go</button>
                             <Link id="goNext"
                             to= {{
                                 pathname: '/Search',
-                                state: {data: this.state.recipes}
-                            }}
-                            ></Link>
-                        <button type ="submit" onClick={this.handleAllClick.bind(this)}>Go</button>
-                            <Link id="goNextAll"
-                            to= {{
-                                pathname: '/displayAll',
                                 state: {data: this.state.recipes}
                             }}
                             ></Link>
@@ -135,6 +125,14 @@ class Landing extends React.Component {
                             <option value="Unknown">Unknown</option>
                             <option value="Vietnamese">Vietnamese</option>                               
                         </select>
+                        <br></br>
+                        <button class="ALL" type ="submit" onClick={this.handleAllClick.bind(this)}>Get All Recipes</button>
+                            <Link id="goNextAll"
+                            to= {{
+                                pathname: '/displayAll',
+                                state: {data: this.state.recipes}
+                            }}
+                            ></Link>
                     </form>
                 </div>
             </main>

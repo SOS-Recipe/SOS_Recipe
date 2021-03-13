@@ -34,7 +34,16 @@ class Recipe extends React.Component {
         return(
             <main>
                 <div class="Recipe-component">
-                    <div class="container-fluid">
+                    <div class="container-fluid content">
+                        <div class ="row">
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-4">
+                                <img class="img-fluid img-rounded center-block d-block mx-auto" src={this.props.location.state.recipe.strMealThumb} alt={this.props.location.state.recipe.strMeal}/>
+                            </div>
+                            <div class="col-md-4">   
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="page-header">
@@ -49,7 +58,7 @@ class Recipe extends React.Component {
                                 <h2 class="text-center">
                                     Ingredients
                                 </h2>
-                                <ul>
+                                <ul class="recipe-list">
                                     {this.state.ingredient_items.map(ingredient_item => 
                                         (<li>{ingredient_item.measurement} - {ingredient_item.ingredient}</li>))}
                                 </ul>
@@ -58,7 +67,7 @@ class Recipe extends React.Component {
                                 <h2 class="text-center">
                                     Instructions
                                 </h2>
-                                <p class="text-left">
+                                <p class="text-left recipe-text">
                                     {this.props.location.state.recipe.strInstructions}
                                 </p>
                             </div>

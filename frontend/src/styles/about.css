@@ -1,13 +1,44 @@
+.AboutPage {
+    height: 100vh;
+    background-image: url(../images/landing-background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .AboutBody {
-    display: flex;
+    /* display: flex;*/
     /* position: relative; */
     padding-top: 62px;
     min-height: 100%;
-    background: url("../images/landing-background.jpg") no-repeat center fixed;
-    background-size: cover;
     margin: none;
 }
 
+.Project{
+    background-color: white;
+    width: 100vh;
+    margin: auto;
+    margin-top: 20vh;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+
+.Project h1{
+    text-align: center;
+}
+
+.Person{
+    background-color: white;
+    margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px;  
+}
+.Person h1{
+    text-align: center;
+}
+/*
 .content {
     position: relative;
     width: 70%;
@@ -19,9 +50,32 @@
     background-color: lightgray;
     opacity: .9;
 }
+*/
+.content{
+    position: relative;
+    width: 60%;
+    text-align: center;
+    vertical-align: center;
+    margin: auto;
+    height: auto;
+    background-color: lightgray;
+    opacity: .9;
+    border: 3px solid #73AD21;
+    padding: 10px;
+
+}
 
 .AboutText {
     position: relative;
     font-size: 18pt;
     color: #333;
 }
+
+/* .AboutPage h1 {
+    padding-top: 60px;
+  }
+  @media (max-width: 979px) {
+    body {
+      padding-top: 0px;
+    }
+  } */

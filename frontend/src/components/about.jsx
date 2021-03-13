@@ -1,6 +1,9 @@
 import React from "react";
 import '../styles/about.css'
-import aboutText from '../writing/aboutText.jsx'
+import aboutTextDavid from '../writing/aboutTextDavid.jsx'
+import aboutTextSam from '../writing/aboutTextSam.jsx'
+import aboutTextJonathan from '../writing/aboutTextJonathan.jsx'
+import aboutTextProject from '../writing/aboutTextProject.jsx'
 class About extends React.Component {
 
     constructor(props){
@@ -20,21 +23,43 @@ class About extends React.Component {
         fetch('/getContacts')
         .then(res => res.json())
         .then(contacts => this.setState({contacts}))
+        console.log("Here")
+        console.log(this.state.contacts)
+        console.log("Here")
     }
 
     render() {
-        const myText = aboutText;
+        const DavidText = aboutTextDavid;
+        const SamText = aboutTextSam;
+        const JonathanText = aboutTextJonathan;
+        const ProjectText = aboutTextProject;
         return(
             <body class="AboutPage">
                 <div class="AboutBody">
-                    <div class='content'>
-                        <h1>About Us</h1>
-                        <p class="AboutText">{myText}</p>
+                    <div class='Project'>
+                        <h1>SOS Recipe</h1>
+                        <p class="AboutText">{ProjectText}</p>
+                    </div>
+                    <br></br>
+                    <div class='Person'>
+                        <h1>Sam Young</h1>
+                        <p class="AboutText">{SamText}</p>
+                    </div>
+                    <div class='Person'>
+                        <h1>David Froman</h1>
+                        <p class="AboutText">{DavidText}</p>
+                    </div>
+                    <div class='Person'>
+                        <h1>Jonathan</h1>
+                        <p class="AboutText">{JonathanText}</p>
+                    </div>
+                    <div class="content">
                         <ul>
                             {this.state.contacts.map(contact => 
                                 (<li>{contact}</li>))}
-                        </ul>
+                        </ul>                     
                     </div>
+
                 </div>
             </body>
         )

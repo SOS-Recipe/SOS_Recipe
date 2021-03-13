@@ -27,6 +27,41 @@ class Landing extends React.Component {
         document.getElementById("goNext").click();
     }
 
+    async handleAllClick(e) {
+        e.preventDefault();
+        let results = [];
+        let resIndex = 0;
+        let temp = [];
+        let i = 0;
+        let letter = (0+10).toString(36);
+        //let name = String(document.getElementById("search").value);
+
+        for (i = 0; i < 26; i++){
+            letter = (i+10).toString(36)
+
+            await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?f=${letter}`).then(res => {
+                if (res.data.meals) {
+                temp = res.data.meals;
+            
+            } else {
+                temp = [];
+            }
+                let j = 0;
+                for (j = 0; j < temp.length; j++){
+                    results[resIndex] = temp[j];
+                    resIndex += 1;
+                }
+                //results = this.state.recipes
+                //console.log(this.state.recipes)       why is this working?
+                console.log(temp.length)
+                
+            });
+
+        }
+        this.setState({recipes: results});
+        document.getElementById("goNextAll").click();
+    }
+
     componentDidMount() {
         document.title="SOS_Recipe"
     }
@@ -43,6 +78,13 @@ class Landing extends React.Component {
                             <Link id="goNext"
                             to= {{
                                 pathname: '/Search',
+                                state: {data: this.state.recipes}
+                            }}
+                            ></Link>
+                        <button type ="submit" onClick={this.handleAllClick.bind(this)}>Go</button>
+                            <Link id="goNextAll"
+                            to= {{
+                                pathname: '/displayAll',
                                 state: {data: this.state.recipes}
                             }}
                             ></Link>

@@ -155,9 +155,7 @@ export default Search;
 
 /*
 TODO:
-  buttons don't overflow properly
   search goes over navbar
   filters
-  return all css
   conatact and about text
 */

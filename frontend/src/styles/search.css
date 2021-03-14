@@ -71,7 +71,7 @@ type.button {
   color:black
 }
 
-@media (max-width: 1040px) {
+@media (max-width: 990px) {
   .search_form,.output{
     display: none
   }

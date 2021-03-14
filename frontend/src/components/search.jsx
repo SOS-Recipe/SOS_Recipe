@@ -13,6 +13,7 @@ class Search extends React.Component {
       clicked: false,
       backgroundImg: `url('../images/landing-background.jpg')`,
       recipes: this.props.location.state.data,
+      loading: true,
     };
   }
 
@@ -24,6 +25,7 @@ class Search extends React.Component {
   async setRecipes () {
     await this.setState({recipes: this.props.location.state.data}, () => {
       console.log(this.state.recipes);
+      this.setState({loading: false});
     });
   }
 
@@ -165,7 +167,8 @@ class Search extends React.Component {
               </select>
             </form>
             <div class="results_btn">
-              {this.state.recipes.map((recipe) => (
+              { !this.state.loading && 
+              this.state.recipes.map((recipe) => (
                 <button
                   id={`${recipe.strMeal}`}
                   type="submit"

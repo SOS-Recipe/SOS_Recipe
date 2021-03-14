@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/displayAll.css";
 import { Link } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 
 class displayAll extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class displayAll extends React.Component {
   componentDidMount() {
     document.title = "SOS_Recipe";
     console.log(this.props.location.state.data);
-    this.setState({recipes: this.props.location.state.data})
+    this.setState({ recipes: this.props.location.state.data });
   }
 
   render() {
@@ -28,24 +28,27 @@ class displayAll extends React.Component {
         <div class="flex_container">
           <div class="results_btn">
             {this.state.recipes.map((recipe) => (
-              <div class="card"
-              id={`${recipe.strMeal}`}
-              style={{ backgroundImage: `url(${recipe.strMealThumb})` }}
+              <div
+                class="card"
+                id={`${recipe.strMeal}`}
+                style={{ backgroundImage: `url(${recipe.strMealThumb})` }}
               >
-                <h4><b>
-                  <Link
-                  id={`recipe:${recipe.strMeal}`}
-                  to={{
-                    pathname: "/Recipe",
-                    state: {
-                      data: this.props.location.state.data,
-                      recipe: recipe,
-                    },
-                  }}
-                  >
-                  {recipe.strMeal}
-                  </Link>
-                </b></h4>
+                <h4>
+                  <b>
+                    <Link
+                      id={`recipe:${recipe.strMeal}`}
+                      to={{
+                        pathname: "/Recipe",
+                        state: {
+                          data: this.props.location.state.data,
+                          recipe: recipe,
+                        },
+                      }}
+                    >
+                      {recipe.strMeal}
+                    </Link>
+                  </b>
+                </h4>
               </div>
             ))}
           </div>
@@ -56,12 +59,3 @@ class displayAll extends React.Component {
 }
 
 export default displayAll;
-
-/*
-TODO:
-  buttons don't overflow properly
-  search goes over navbar
-  filters
-  return all css
-  conatact and about text
-*/

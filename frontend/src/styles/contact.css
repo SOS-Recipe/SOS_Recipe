@@ -1,51 +1,51 @@
 .ContactPage {
-    height: 100vh;
-    margin: 0;
-    background-image: url(../images/landing-background.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  height: 100vh;
+  margin: 0;
+  background-image: url(../images/landing-background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .ContactBody {
-    /* display: flex;*/
-    /* position: relative; */
-    padding-top: 62px;
-    min-height: 100%;
-    width: 100%;
-    margin: none;
+  /* display: flex;*/
+  /* position: relative; */
+  padding-top: 62px;
+  min-height: 100%;
+  width: 100%;
+  margin: none;
 }
 
-.Project{
-    background-color: white;
-    width: 100vh;
-    margin: auto;
-    margin-top: 20vh;
-    width: 60%;
-    border: 3px solid #73AD21;
-    padding: 10px;
+.Project {
+  background-color: white;
+  width: 100vh;
+  margin: auto;
+  margin-top: 20vh;
+  width: 60%;
+  border: 3px solid #73ad21;
+  padding: 10px;
 }
 
-.Project h1{
-    text-align: center;
+.Project h1 {
+  text-align: center;
 }
 
 .Project li {
-    color: #333;
+  color: #333;
 }
 
-.Person{
-    background-color: white;
-    margin: auto;
-    width: 60%;
-    border: 3px solid #73AD21;
-    padding: 10px;  
+.Person {
+  background-color: white;
+  margin: auto;
+  width: 60%;
+  border: 3px solid #73ad21;
+  padding: 10px;
 }
-.Person h1{
-    text-align: center;
+.Person h1 {
+  text-align: center;
 }
 
 .Person li p {
-    color: #333;
-    font-size: 18pt;
+  color: #333;
+  font-size: 18pt;
 }

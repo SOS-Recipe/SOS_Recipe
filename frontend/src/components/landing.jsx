@@ -27,7 +27,7 @@ class Landing extends React.Component {
         else if (document.getElementById("region_drop").value !== "") {
             req += "filter.php?a=" + document.getElementById("region_drop").value;
             regionFlag = true;
-        } 
+        }     
         else {
             req += "search.php?s=" + String(document.getElementById("search").value);
         }

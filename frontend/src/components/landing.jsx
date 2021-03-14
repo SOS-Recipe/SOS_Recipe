@@ -18,19 +18,16 @@ class Landing extends React.Component {
         let catagoryFlag = false;
         let req = "https://www.themealdb.com/api/json/v1/1/";
         if(document.getElementById("catagory_drop").value !== "") {
-            req += "filter.php?c=" + document.getElementById("catagory_drop").value + "&s=" + document.getElementById("search").value;
+            req += "filter.php?c=" + document.getElementById("catagory_drop").value;
+            if (document.getElementById("search").value !== "") {
+                req += "&s=" + String(document.getElementById("search").value)
+            }
+            catagoryFlag = true;        
         } 
         else if (document.getElementById("region_drop").value !== "") {
             req += "filter.php?a=" + document.getElementById("region_drop").value;
             regionFlag = true;
         } 
-        else if (document.getElementById("catagory_drop").value !== ""){
-            req += "filter.php?c=" + document.getElementById("catagory_drop").value;
-            if (document.getElementById("search").value !== "") {
-                req += "&s=" + String(document.getElementById("search").value)
-            }
-            catagoryFlag = true;
-        }
         else {
             req += "search.php?s=" + String(document.getElementById("search").value);
         }

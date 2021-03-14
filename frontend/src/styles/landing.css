@@ -1,29 +1,27 @@
 :root {
     --rad: .4rem;
 }
-.Landing-component {
+
+.landing-component {
     background-image: url(../images/landing-background.jpg);
-
     height: 100vh; 
-    margin: 0;
-
+    margin: 0 auto;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    padding: 0px 20px;
 }
 
-.Landing-component h1 {
-    font-size: 5rem;
-    color: white;
+.landing-component h1 {
+    color: white !important;
+    text-align: center !important;
+}
+
+.jumbotron {
+    background-color: rgba(85, 85, 85, 0.678) !important;
 }
 
 form {
+    text-align: center;
     position: relative;
     border-radius: .7rem;
 }

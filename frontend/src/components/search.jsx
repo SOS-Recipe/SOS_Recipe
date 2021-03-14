@@ -125,6 +125,7 @@ class Search extends React.Component {
                 >
                   <Link
                     id={`recipe:${recipe.strMeal}`}
+                    class="link"
                     to={{
                       pathname: "/Recipe",
                       state: {
@@ -153,9 +154,3 @@ class Search extends React.Component {
 
 export default Search;
 
-/*
-TODO:
-  search goes over navbar
-  filters
-  conatact and about text
-*/

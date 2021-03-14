@@ -58,7 +58,36 @@
   background-color: grey;
   color: black;
 }
+.go_btn{
+  background: rgb(27, 230, 105);
+  border-radius: 0 var(--rad) var(--rad) 0;
+}
 
 type.button {
   border: 1px solid black;
+}
+
+.link {
+  color:black
+}
+
+@media (max-width: 1040px) {
+  .search_form,.output{
+    display: none
+  }
+  .search_results_wrapper{
+    width: 100%
+  }
+  @media (max-width: 767px) {
+    .results_btn{
+      width: 100vw;
+      margin-top: 125px;
+    }
+  }
+  @media (min-width: 768px){
+    .results_btn{
+      width: 100vw;
+      margin-top: 150px;
+    }
+  }
 }

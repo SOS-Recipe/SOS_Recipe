@@ -66,7 +66,7 @@ class Landing extends React.Component {
     render() {
 
         return(
-            <main>
+            <main class="landing-component">
                 <div class="container h-100">
                     <div class="row align-items-center h-100">
                         <div class="col-6 mx-auto">

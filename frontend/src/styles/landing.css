@@ -2,7 +2,7 @@
     --rad: .4rem;
 }
 
-main {
+.landing-component {
     background-image: url(../images/landing-background.jpg);
     height: 100vh; 
     margin: 0 auto;
@@ -11,7 +11,7 @@ main {
     background-size: cover;
 }
 
-h1 {
+.landing-component h1 {
     color: white !important;
     text-align: center !important;
 }

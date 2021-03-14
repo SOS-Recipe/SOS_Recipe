@@ -30,9 +30,8 @@
     text-align: center;
 }
 
-.Project li p {
+.Project li {
     color: #333;
-    font-size: 18pt;
 }
 
 .Person{

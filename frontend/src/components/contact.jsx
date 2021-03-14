@@ -34,9 +34,7 @@ class Contact extends React.Component {
                         <h1>SOS Recipe</h1>
                         <ul class="ContactList">
                             <li>
-                                <p>
                                     {ProjectText[0]}
-                                </p>
                             </li>
                         </ul>
                     </div>

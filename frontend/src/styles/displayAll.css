@@ -1,8 +1,7 @@
-
-.flex_container{
-    padding-top: 62px;
-    min-height: 100vh;
-    display: flex
+.flex_container {
+  padding-top: 62px;
+  min-height: 100vh;
+  display: flex;
 }
 
 .results_btn {
@@ -18,7 +17,7 @@
 .card {
   /* Add shadows to create the "card" effect */
   background: no-repeat;
-  box-shadow: 5px 5px 8px rgba(0,0,0,0);
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0);
   transition: 0.3s;
   padding: 2px 16px;
   width: 33%;
@@ -30,5 +29,5 @@
 }
 /* On mouse-over, add a deeper shadow */
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }

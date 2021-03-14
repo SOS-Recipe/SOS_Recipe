@@ -1,46 +1,47 @@
 :root {
-    --rad: .4rem;
+  --rad: 0.4rem;
 }
 
 .landing-component {
-    background-image: url(../images/landing-background.jpg);
-    height: 100vh; 
-    margin: 0 auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url(../images/landing-background.jpg);
+  height: 100vh;
+  margin: 0 auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .landing-component h1 {
-    color: white !important;
-    text-align: center !important;
+  color: white !important;
+  text-align: center !important;
 }
 
 .jumbotron {
-    background-color: rgba(85, 85, 85, 0.678) !important;
+  background-color: rgba(85, 85, 85, 0.678) !important;
 }
 
 form {
-    text-align: center;
-    position: relative;
-    border-radius: .7rem;
+  text-align: center;
+  position: relative;
+  border-radius: 0.7rem;
 }
 
-input, button {
-    border: 0;
-    font-size: 1.5rem;
-    color: rgb(70, 70, 70);
+input,
+button {
+  border: 0;
+  font-size: 1.5rem;
+  color: rgb(70, 70, 70);
 }
 
 input {
-    border-radius: var(--rad) 0 0 var(--rad);
+  border-radius: var(--rad) 0 0 var(--rad);
 }
 
 button.Single {
-    background: rgb(27, 230, 105);
-    border-radius: 0 var(--rad) var(--rad) 0;
+  background: rgb(27, 230, 105);
+  border-radius: 0 var(--rad) var(--rad) 0;
 }
 button.ALL {
-    background: rgb(27, 230, 105);
-    border-radius: var(--rad) var(--rad) var(--rad) var(--rad);
+  background: rgb(27, 230, 105);
+  border-radius: var(--rad) var(--rad) var(--rad) var(--rad);
 }

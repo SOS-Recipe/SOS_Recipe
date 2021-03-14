@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/search.css";
 import { Link } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 
 class Search extends React.Component {
   constructor(props) {
@@ -19,22 +19,23 @@ class Search extends React.Component {
   componentDidMount() {
     document.title = "SOS_Recipe";
     console.log(this.props.location.state.data);
-    this.setState({recipes: this.props.location.state.data})
+    this.setState({ recipes: this.props.location.state.data });
   }
 
   async handleClick(e) {
     e.preventDefault();
     let results = [];
     let name = String(document.getElementById("search").value);
-    await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`).then(res => {
+    await axios
+      .get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
+      .then((res) => {
         if (res.data.meals) {
-        results = res.data.meals;
-    
-    } else {
-        results = [];
-    }
-        this.setState({recipes: results});
-    });
+          results = res.data.meals;
+        } else {
+          results = [];
+        }
+        this.setState({ recipes: results });
+      });
   }
 
   over(strMeal) {
@@ -65,7 +66,11 @@ class Search extends React.Component {
                 autofocus
                 required
               />
-              <button type="submit" class="go_btn" onClick={this.handleClick.bind(this)}>
+              <button
+                type="submit"
+                class="go_btn"
+                onClick={this.handleClick.bind(this)}
+              >
                 Go
               </button>
               <select name="catagory" id="catagory_drop" class="catagory_drop">
@@ -153,4 +158,3 @@ class Search extends React.Component {
 }
 
 export default Search;
-

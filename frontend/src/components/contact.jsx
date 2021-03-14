@@ -6,13 +6,26 @@ import contactTextJonathan from '../writing/contactTextJonathan.jsx'
 import contactTextProject from '../writing/contactTextProject.jsx'
 
 class Contact extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            contacts:[]
+        }
+    }
+
     componentDidMount() {
         document.title="SOS_Recipe"
+        this.getContacts();
     }
+
+    getContacts = () => {
+        fetch('/getContacts')
+        .then(res => res.json())
+        .then(contacts => this.setState({contacts}))
+        console.log(this.state.contacts)
+    }
+
     render() {
-        const DavidText = contactTextDavid;
-        const SamText = contactTextSam;
-        const JonathanText = contactTextJonathan;
         const ProjectText = contactTextProject;
         return(
             <body class="ContactPage">
@@ -28,51 +41,17 @@ class Contact extends React.Component {
                         </ul>
                     </div>
                     <br></br>
-                    <div class='Person'>
-                        <h1>Sam Young</h1>
-                        <ul class="ContactList">
-                            <li>
-                                <p>
-                                    {SamText[0]}
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    {SamText[1]}
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class='Person'>
-                        <h1>David Froman</h1>
-                        <ul class="ContactList">
-                            <li>
-                                <p>
-                                    {DavidText[0]}
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    {DavidText[1]}
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class='Person'>
-                        <h1>Jonathan</h1>
-                        <ul class="ContactList">
-                            <li>
-                                <p>
-                                    {JonathanText[0]}
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    {JonathanText[1]}
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
+                    {this.state.contacts.map(contact =>
+                            (<div class='Person'>
+                                <h1>{contact.name}</h1>
+                                <ul class="ContactList">
+                                    <li>Email: {contact.email}</li>
+                                    <li>GitHub: {contact.github}</li>
+                                </ul>
+                                </div>
+                            )
+                        )
+                    }
                 </div>
             </body>
         )

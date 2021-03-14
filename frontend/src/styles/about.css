@@ -1,5 +1,6 @@
 .AboutPage {
     height: 100vh;
+    margin: 0;
     background-image: url(../images/landing-background.jpg);
     background-position: center;
     background-repeat: no-repeat;

@@ -1,5 +1,10 @@
 # SOS_Recipe
 
+### Members:
+Sam Youngs
+David Froman
+Joanthan Rivera
+
 ### Heroku Deployment:
 https://sos-recipe.herokuapp.com/
 
